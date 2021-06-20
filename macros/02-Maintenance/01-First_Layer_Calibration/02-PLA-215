@@ -8,6 +8,6 @@ M291 R{"First layer calibration for PLA at 215°C."} P{"Press OK to continue or 
 ;
 ;====== print meander and square ==========================================================================
 ;
-M32 0:/macros/04-Maintenance/01-First_Layer_Calibration/gcodes/PLA-FirstLayerCalibration.gcode
+M32 0:/macros/02-Maintenance/01-First_Layer_Calibration/gcodes/PLA-FirstLayerCalibration.gcode
 ;
 ;====== end meander and square ============================================================================
