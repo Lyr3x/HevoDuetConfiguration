@@ -27,8 +27,8 @@ M400					            ; Wait for motion to stop, we should now be home
 ; sometimes the inital movements after the printer has been powered
 ; on trigger stall detection. To avoid having the home position set
 ; incorrectly, we repeat the home operation again to be safe.
-M915 X S1 H200 R0	    ; Configure stall detect
-M915 Y S1 H200 R0	    ; Configure stall detect
+M915 X S1 H400 R0	    ; Configure stall detect
+M915 Y S1 H400 R0	    ; Configure stall detect
 G1 H1 X10 Y10 F3699	    ; Back away from endstop
 M400                      ; Wait for all moves to stop
 M98 P"current-sense-homing.g"     ; Ensure the current and sensitivity is set for homing routines.
@@ -43,6 +43,6 @@ M400					            ; Wait for all moves to stop
 G90						            ; Absolute positioning
 G1 X135 Y140 F5000        ; Go to first bed probe point and home Z
 G30                       ; Home Z by probing the bed
-M915 X S20 H200 R1		    ; Configure stall detect to report stalls
-M915 Y S20 H200 R1		    ; on both X and Y
+M915 X S20 H400 R1		    ; Configure stall detect to report stalls
+M915 Y S20 H400 R1		    ; on both X and Y
 M98 P"current-sense-stall.g"     ; Configure stall detect
