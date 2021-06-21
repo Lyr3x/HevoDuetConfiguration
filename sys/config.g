@@ -37,9 +37,9 @@ M915 Y R0 F0 S1								 ; Set Y Stallguard values (-63/+63) - is more sensitive
 
 ; Z-Probe
 M558 P8 L1 C"io3.in+io3.out" H2 F600 T6000      ; set Z probe type to unmodulated and the dive height + speeds
-G31 P500 X-22 Y26 Z1.1                ; set Z probe trigger value, offset and trigger height
-M557 X15:215 Y15:195 S20                     ; define mesh grid
-M671 X-15.0:300.0 Y125.0:-20.0			; Z leadscrews
+G31 P500 X-22 Y26 Z0.94                         ; set Z probe trigger value, offset and trigger height
+M557 X15:215 Y15:195 S20                        ; define mesh grid
+M671 X-15.0:300.0 Y125.0:-20.0			        ; Z leadscrews
 
 ; Heaters
 M308 S0 P"temp0" Y"thermistor" T100000 B3950 ; configure sensor 0 as thermistor on pin temp0
