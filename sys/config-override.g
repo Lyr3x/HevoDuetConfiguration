@@ -2,7 +2,7 @@
 
 ; Heater model parameters
 M307 H0 R0.488 C266.900:266.900 D3.00 S1.00 V24.1 B0
-M307 H1 R2.110 C122.300:122.300 D6.60 S1.00 V24.0 B0
+M307 H1 B0 R1.879 C256.2:160.3 D5.40 S1.00 V24.0
 ; Z probe parameters
 G31 P500 X-22.0 Y26.0 Z0.96
 ; Probed tool offsets

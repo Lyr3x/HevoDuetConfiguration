@@ -19,9 +19,9 @@ M584 X0.0 Y0.1 Z2:3 E0.4                     ; set drive mapping
 
 M350 X16 Y16 Z16 E16 I1                      ; configure microstepping with interpolation
 M92 X160.00 Y160.00 Z400.00 E409.00            ; set steps per mm
-M566 X1000.00 Y1000.00 Z60.00 E120.00          ; set maximum instantaneous speed changes (mm/min)
-M203 X6000.00 Y6000.00 Z300.00 E1200.00      ; set maximum speeds (mm/min)
-M201 X3000.00 Y3000.00 Z20.00 E500.00          ; set accelerations (mm/s^2)
+M566 X1000.00 Y1000.00 Z120.00 E120.00          ; set maximum instantaneous speed changes (mm/min)
+M203 X6000.00 Y6000.00 Z600.00 E1200.00      ; set maximum speeds (mm/min)
+M201 X3000.00 Y3000.00 Z200.00 E500.00          ; set accelerations (mm/s^2)
 M906 X1300 Y1300 Z950 E920 I60              ; set motor currents (mA) and motor idle factor in per cent
 M84 S30                                      ; Set idle timeout
 
@@ -38,7 +38,7 @@ M915 Y R0 F0 S1								 ; Set Y Stallguard values (-63/+63) - is more sensitive
 ; Z-Probe
 M558 P8 L1 C"io3.in+io3.out" H2 F600 T6000      ; set Z probe type to unmodulated and the dive height + speeds
 G31 P500 X-22 Y26 Z0.94                         ; set Z probe trigger value, offset and trigger height
-M557 X15:215 Y15:195 S20                        ; define mesh grid
+M557 X30:215 Y15:195 S20                        ; define mesh grid
 M671 X-15.0:300.0 Y125.0:-20.0			        ; Z leadscrews
 
 ; Heaters
@@ -49,7 +49,7 @@ M140 H0                                      ; map heated bed to heater 0
 M143 H0 S120                                 ; set temperature limit for heater 0 to 120C
 M308 S1 P"temp1" Y"thermistor" T100000 B4725 C7.06e-8; configure sensor 1 as thermistor on pin temp1
 M950 H1 C"out1" T1                           ; create nozzle heater output on out1 and map it to sensor 1
-M307 H1 B0 R1.722 C170.6:87.8 D7.38 S1.00 V24.0      ; disable bang-bang mode for heater  and set PWM limit
+M307 H1 B0 R1.879 C256.2:160.3 D5.40 S1.00 V24.0     ; disable bang-bang mode for heater  and set PWM limit
 M143 H1 S280                                 ; set temperature limit for heater 1 to 280C
 
 ; Fans
