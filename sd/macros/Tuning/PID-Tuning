@@ -1,0 +1,30 @@
+; Hotend and Bed PID tuning macro with user input
+
+; Ask the user for the hotend temperature to tune to
+M291 P"Please enter the hotend temperature you want to tune to: " R"Enter temperature:" S3 T0
+
+; Store the user's desired hotend temperature in a variable
+G10 P0 R999 S{{:T0}}
+
+; Perform hotend PID tuning
+M303 H0 S{{:T0}} ; Replace {:T0} with the stored hotend temperature variable
+
+; Ask the user if they want to continue with bed PID tuning
+M291 P"Do you want to continue with bed PID tuning? Select Yes to continue or No to cancel." R"Confirm" S3
+if result = 0 ; User selected No, stop the macro
+  M291 P"Bed PID tuning cancelled."
+  M291 P"Please run this macro again to retry."
+  M0
+endif
+
+; Ask the user for the desired temperature to tune the bed to
+M291 P"Please enter the temperature you want to tune the bed to: " R"Enter temperature:" S3 T0
+
+; Store the user's desired bed temperature in a variable
+G10 P0 R999 S{{:T0}}
+
+; Perform bed PID tuning
+M303 H1 S{{:T0}} ; Replace {:T0} with the stored bed temperature variable
+
+; Inform the user that the tuning process is complete
+M291 P"PID tuning is complete! You can now save the settings with M500."
